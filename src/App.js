@@ -2,7 +2,8 @@ import React from 'react';
 import { View } from 'react-native';
 import style from './components/estilo'
 
-import FlexBoxV4 from './components/Layout/FlexBoxV4'
+import Megasena from './components/mega/Mega'
+// import FlexBoxV4 from './components/Layout/FlexBoxV4'
 // import TextInput from './components/DigiteNome'
 // import listaprodutosV2 from './components/Produtos/listaprodutoV2'
 // import listaprodutos from './components/Produtos/produtos'
@@ -20,8 +21,9 @@ export default () => {
   return (
 
     <View style={style.App}>
-      <FlexBoxV4 />
+      <Megasena qtdeNumeros={12} />
       {/*
+      <FlexBoxV4 />
       <FlexBoxV3 />
       <FlexBoxV2 />
       <FlexBoxV1 />
