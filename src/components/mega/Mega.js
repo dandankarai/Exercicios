@@ -22,7 +22,7 @@ export default class Mega extends Component {
     const numeros = Array(this.state.qtdeNumeros)
       .fill()
       .reduce(n => [...n, this.gerarNumeroNaoContido(n)], [])
-      .sort((a,b) => a - b)
+      .sort((a,b) => a - b) //ordem crescente
     this.setState({numeros})
   }
 
@@ -35,10 +35,10 @@ export default class Mega extends Component {
         </Text>
 
         <TextInput
-          keyboardType= {'numeric'}
+          keyboardType= {'numeric'} //teclado númerico somente
           style={{borderBottomWidth: 1}}
           placeholder = "Qtde de Números"
-          value = {`${this.state.qtdeNumeros}`}
+          value = {`${this.state.qtdeNumeros}`}// transforma em uma string
           onChangeText = {this.alterarQtdeNumeros} 
         />
 
@@ -48,7 +48,7 @@ export default class Mega extends Component {
         />
 
         <Text>
-          {this.state.numeros.join(',')}
+          {this.state.numeros.join(',')} 
         </Text>
       </>
     )
