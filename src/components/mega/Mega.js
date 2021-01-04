@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Text, TextInput, Button } from 'react-native';
-import estilo from '../estilo';
+import { Text, TextInput, Button, View } from 'react-native';
+import style from '../estilo';
+
+import MegaNumero from './MegaNumero';
 
 export default class Mega extends Component {
 
   state = {
     qtdeNumeros: this.props.qtdeNumeros,
-    numeros: [ ]
+    numeros: []
   }
 
   alterarQtdeNumeros = (qtde) => {
@@ -26,42 +28,56 @@ export default class Mega extends Component {
   //   this.setState({numeros})
   // }
 
-  gerarNumeros = () =>{
-    const {qtdeNumeros} = this.state
+  gerarNumeros = () => {
+    const { qtdeNumeros } = this.state
     const numeros = []
 
-    for (let i = 0; i < qtdeNumeros; i++){
+    for (let i = 0; i < qtdeNumeros; i++) {
       const n = this.gerarNumeroNaoContido(numeros)
       numeros.push(n)
     }
-    numeros.sort((a,b) => a - b)
-    this.setState({numeros})
+    numeros.sort((a, b) => a - b)
+    this.setState({ numeros })
   }
-  
+
+  exbirNumeros = () => {
+    const nums = this.state.numeros
+    return nums.map(num => {
+      return <MegaNumero key={num} num={num} />
+    })
+  }
+
   render() {
     return (
       <>
-
-        <Text style={estilo.Text}>
-          Gerador de Mega Sena
+        <Text style={style.text}>
+          Gerador de números da  Mega Sena
         </Text>
 
-        <TextInput
-          keyboardType= {'numeric'} //teclado númerico somente
-          style={{borderBottomWidth: 1}}
-          placeholder = "Qtde de Números"
-          value = {`${this.state.qtdeNumeros}`}// transforma em uma string
-          onChangeText = {this.alterarQtdeNumeros} 
+        <TextInput style = {style.inputMega}
+          keyboardType={'numeric'} //teclado númerico somente
+          style={{ borderBottomWidth: 1 }}
+          placeholder="Qtde de Números"
+          value={`${this.state.qtdeNumeros}`}// transforma em uma string
+          onChangeText={this.alterarQtdeNumeros}
         />
 
         <Button
+          style = {style.ButtonMega}
           title='Gerar Números da Mega'
           onPress={this.gerarNumeros}
         />
 
-        <Text>
-          {this.state.numeros.join(',')} 
-        </Text>
+        <View style={{
+          marginTop:20,
+          flexDirection: 'row',
+          flexWrap: "wrap",
+          justifyContent:"center",
+        }}>
+
+          {this.exbirNumeros()}
+
+        </View>
       </>
     )
   }

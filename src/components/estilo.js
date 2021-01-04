@@ -6,27 +6,35 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent:'center',
     alignItems: 'center',
-    backgroundColor:'pink',
     padding: 20,
   },
 
-  text:{
-    fontSize: 40,
-    textAlign: 'center',
+  text: {
+    fontSize: 25,
+    textAlign: "center",
+    marginEnd: 30
   },
 
-  button:{
-    flexDirection: 'row',
-  },
-
-  display:{
+  Container:{
+    height: 50,
+    width: 50,
     backgroundColor: '#000',
-    padding: 20,
-    width:300,
+    margin: 5,
+    borderRadius: 25,
   },
 
-  displayText:{
+  Num:{
     color: '#FFF',
-    alignItems: 'center',
+    textAlign:"center",
+    fontSize:40
   },
+
+  inputMega:{
+    height: 40,
+    width: 40,
+  },
+
+  ButtonMega:{
+    backgroundColor: "#000"
+  }
 })
